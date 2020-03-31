@@ -12,5 +12,8 @@ class RenterTest < Minitest::Test
     assert_instance_of Renter, @renter1
   end
 
+  def test_it_has_a_name
+    assert_equal "Jessie", @renter1.name 
+  end
 
 end
