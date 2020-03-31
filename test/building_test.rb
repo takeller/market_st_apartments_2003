@@ -63,8 +63,9 @@ class BuildingTest < Minitest::Test
     assert_equal [], @building.rented_units
 
     @unit2.add_renter(@renter2)
+    @unit3.add_renter(@renter3)
 
-    assert_equal [@unit2], @building.rented_units
+    assert_equal [@unit2, @unit3], @building.rented_units
   end
 
   def test_renter_with_highest_rent
