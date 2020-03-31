@@ -85,4 +85,14 @@ class BuildingTest < Minitest::Test
     assert_equal @renter1, @building.renter_with_highest_rent
 
   end
+
+  def test_units_by_number_of_bedrooms
+    @building.add_unit(@unit1)
+    @building.add_unit(@unit2)
+    @building.add_unit(@unit3)
+    @building.add_unit(@unit4)
+
+    expected = { 3: ["D4"], 2: ["B2", "C3"], 1: ["A1"]}
+    assert_equal expected, @building.units_by_number_of_bedrooms 
+  end
 end
