@@ -26,4 +26,11 @@ class Building
   def renter_with_highest_rent
     rented_units.max_by { |unit| unit.monthly_rent}.renter
   end
+
+  def units_by_number_of_bedrooms
+    units_by_bedroom = @units.group_by { |unit| unit.bedrooms }
+    units_by_bedroom.transform_values do |unit|
+       unit.map { |unit| unit.number  }
+     end
+  end
 end

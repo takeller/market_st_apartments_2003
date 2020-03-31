@@ -92,7 +92,7 @@ class BuildingTest < Minitest::Test
     @building.add_unit(@unit3)
     @building.add_unit(@unit4)
 
-    expected = { 3: ["D4"], 2: ["B2", "C3"], 1: ["A1"]}
-    assert_equal expected, @building.units_by_number_of_bedrooms 
+    expected = { 3 => ["D4"], 2 => ["B2", "C3"], 1=> ["A1"]}
+    assert_equal expected, @building.units_by_number_of_bedrooms
   end
 end
