@@ -42,4 +42,8 @@ class BuildingTest < Minitest::Test
 
     assert_equal ["Aurora", "Tim"], @building.renters
   end
+
+  def test_average_rent
+    assert_equal 1099.5, @building.average_rent
+  end
 end
