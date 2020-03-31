@@ -58,8 +58,10 @@ class BuildingTest < Minitest::Test
 
   def test_rented_units
     assert_equal [], @building.rented_units
+    @building.add_unit(@unit1)
+    @building.add_unit(@unit2)
 
-    @unit2.add_renter(renter2)
+    @unit2.add_renter(@renter2)
 
     assert_equal [@unit2], @building.rented_units
   end

@@ -20,6 +20,6 @@ class Building
   end
 
   def rented_units
-
+    @units.find_all { |unit| unit.renter }
   end
 end
