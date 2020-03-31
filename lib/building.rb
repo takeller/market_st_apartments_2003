@@ -22,4 +22,8 @@ class Building
   def rented_units
     @units.find_all { |unit| unit.renter }
   end
+
+  def renter_with_highest_rent
+    rented_units.max_by { |unit| unit.monthly_rent}.renter
+  end
 end
