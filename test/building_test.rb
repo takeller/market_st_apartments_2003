@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/renter.rb'
 require './lib/apartment.rb'
+require './lib/building.rb'
 
 class BuildingTest < Minitest::Test
 
@@ -20,10 +21,14 @@ class BuildingTest < Minitest::Test
     assert_equal [], @building.units
   end
 
+  def test_it_has_no_renters_by_default
+    assert_equal [], @building.renters
+  end
+
   def test_add_unit
     @building.add_unit(@unit1)
     @building.add_unit(@unit2)
 
-    assert_equal [@unit1, @unit2], @building.units 
+    assert_equal [@unit1, @unit2], @building.units
   end
 end
