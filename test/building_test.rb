@@ -41,6 +41,9 @@ class BuildingTest < Minitest::Test
     @building.add_unit(@unit2)
 
     @unit1.add_renter(@renter1)
+
+    assert_equal ["Aurora"], @building.renters
+
     @unit2.add_renter(@renter2)
 
     assert_equal ["Aurora", "Tim"], @building.renters
