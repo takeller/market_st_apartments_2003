@@ -33,4 +33,13 @@ class Building
        unit.map { |unit| unit.number  }
      end
   end
+
+  def annual_breakdown
+    breakdown = renters.map do |renter|
+      renters_unit = rented_units.find { |unit| unit.renter.name == renter}
+      [renter, (renters_unit.monthly_rent) * 12]
+    end
+    breakdown.to_h
+  end
+
 end
