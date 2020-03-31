@@ -110,4 +110,15 @@ class BuildingTest < Minitest::Test
     expected = {"Tim" => 11988, "Max" => 13800}
     assert_equal expected, @building.annual_breakdown
   end
+
+  def test_rooms_by_renter
+    @building.add_unit(@unit2)
+    @building.add_unit(@unit3)
+    @unit2.add_renter(@renter2)
+    @unit3.add_renter(@renter3)
+
+    expected = { @renter2 => {bathrooms: 2, bedrooms: 2},@renter3 => {bathrooms: 2, bedrooms: 2}}
+
+    assert_equal expected, @building.rooms_by_renter
+  end
 end

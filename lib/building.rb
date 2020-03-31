@@ -42,4 +42,12 @@ class Building
     breakdown.to_h
   end
 
+  def rooms_by_renter
+    rooms_by_renter = renters.map do |renter|
+      renters_unit = rented_units.find { |unit| unit.renter.name == renter}
+      [renters_unit.renter, {bathrooms: renters_unit.bathrooms, bedrooms: renters_unit.bedrooms}]
+    end
+    rooms_by_renter.to_h
+  end
+
 end
